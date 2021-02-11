@@ -57,6 +57,10 @@ def get_info():
         sequence_list = [allowed_bases[index] for index in binned_base_rand]
         final_sequence = ''.join(sequence_list)
 
+        cg_count = final_sequence.count('C') + final_sequence.count('G')
+        print("\nThe created sequence is:\n{}".format(final_sequence))
+        print("True CG content of sequence = {}/{} = {}%\n".format(cg_count, nbp, cg_count/nbp*100))
+
     else:
         final_sequence = input("Desired sequence? ").upper()
         # Check input
