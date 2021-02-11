@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 """
-make_pdb.py
+DNAmaker.main.py
 
 Author: Neville Yee
 Version: 0.1
