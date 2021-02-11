@@ -74,8 +74,8 @@ def write_nab(dna_spec_in=None, nab_name=None, pdb_name=None):
     """
 
     (form, sequence) = dna_spec_in
-    # Get user input for various names
-    mol_name = input("Name of molecule in nab? ")
+    # Define molecule name in nab file - could be kept in the black box WLOG
+    mol_name = 'm'
 
     mol_name_line = "molecule {};".format(mol_name)
     mol_def_line = '{} = fd_helix( "{}", "{}", "dna" );'.format(mol_name, form, sequence)
@@ -92,8 +92,8 @@ if __name__ == '__main__':
     dna_spec = get_info()
 
     # Generate NAB file for processing
-    nab_file = input("Name of nab file? ")
-    pdb_file = input("Name of pdb file? ")
+    nab_file = input('Name (less ".nab") of nab file? ') + '.nab'
+    pdb_file = input('Name (less ".pdb") of pdb file? ') + '.pdb'
     write_nab(dna_spec, nab_file, pdb_file)
 
     # Check AMBERHOME properly set
