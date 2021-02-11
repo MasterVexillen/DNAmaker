@@ -64,9 +64,8 @@ def get_info():
     else:
         final_sequence = input("Desired sequence? ").upper()
         # Check input
-        for base in final_sequence:
-            if not base in allowed_bases:
-                raise ValueError("Non DNA base entered. Typo?")
+        if not set(allowed_bases).issuperset(set(final_sequence)):
+            raise ValueError("Non DNA base entered. Typo?")
 
     print("DNA sequence created successfully. Now write nab file... \n")
     return (form, final_sequence)
