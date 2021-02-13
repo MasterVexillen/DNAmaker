@@ -94,9 +94,14 @@ if __name__ == '__main__':
     # Generate DNA specs
     dna_spec = get_info()
 
-    # Generate NAB file for processing
-    nab_file = input('Name (less ".nab") of nab file? ') + '.nab'
-    pdb_file = input('Name (less ".pdb") of pdb file? ') + '.pdb'
+    # Generate NAB and PDB file for processing
+    nab_file = input('Name (less ".nab") of nab file? ')
+    pdb_file = input('Name (less ".pdb") of pdb file? (default: same name as nab file)')
+    if len(pdb_file) == 0:
+        pdb_file = nab_file
+
+    nab_file += '.nab'
+    pdb_file += '.pdb'
     write_nab(dna_spec, nab_file, pdb_file)
 
     # Check AMBERHOME properly set
